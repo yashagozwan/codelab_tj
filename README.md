@@ -1,16 +1,32 @@
-# codelab_tj
+# Codelab Transjakarta (TJ)
 
-A new Flutter project.
+## Flutter & Dart
+```text
+    flutter: 3.27.4
+    dart: 3.6.2
+```
 
-## Getting Started
+## Java
+```text
+    OpenJDK Runtime Environment (build 17.0.0.1+2-3)
+```
 
-This project is a starting point for a Flutter application.
+## Step 1
+create .env in root project
+```text
+    BASE_URL=https://api-v3.mbta.com
+    API_KEY=123
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Step 2 
+run the project with command
+```text
+    fluter run
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Task
+- Mengambil data kendaraan melalui REST API ✅
+- Menampilkan data kendaraan dalam bentuk Card dan memiliki pagination ✅
+- Menyediakan filter kendaraan berdasarkan Rute dan Trip 
+
