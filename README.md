@@ -11,6 +11,17 @@
     OpenJDK Runtime Environment (build 17.0.0.1+2-3)
 ```
 
+## Architecture
+- Clean Architecture
+- Bloc Pattern State Management
+- Inversion of control
+
+## Structure Project Layer
+- Presentation Layer
+- Domain Layer
+- Data Layer
+- Core Center Config
+
 ## Step 1
 create .env in root project
 ```text
