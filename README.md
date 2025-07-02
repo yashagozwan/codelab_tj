@@ -29,4 +29,6 @@ run the project with command
 - Mengambil data kendaraan melalui REST API ✅
 - Menampilkan data kendaraan dalam bentuk Card dan memiliki pagination ✅
 - Menyediakan filter kendaraan berdasarkan Rute dan Trip ✅
+- Menampilkan detail dari kendaraan ✅
+
 

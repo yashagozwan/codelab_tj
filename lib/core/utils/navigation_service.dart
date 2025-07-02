@@ -8,7 +8,7 @@ class NavigationService {
 
   Future<T?> push<T extends Object?>(Widget screen) {
     return navKey.currentState!.push(
-      cp.CupertinoModalPopupRoute(
+      cp.CupertinoPageRoute(
         builder: (context) => screen,
       ),
     );

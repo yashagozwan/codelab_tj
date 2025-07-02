@@ -8,38 +8,44 @@ part of 'vehicle_detail_model.dart';
 
 VehicleDetailModel _$VehicleDetailModelFromJson(Map<String, dynamic> json) =>
     VehicleDetailModel(
-      id: json['id'] as String,
-      type: json['type'] as String,
-      attributes: VehicleAttributes.fromJson(
-          json['attributes'] as Map<String, dynamic>),
-      links: VehicleLinks.fromJson(json['links'] as Map<String, dynamic>),
-      relationships: VehicleRelationships.fromJson(
-          json['relationships'] as Map<String, dynamic>),
+      id: json['id'] as String?,
+      type: json['type'] as String?,
+      attributes: json['attributes'] == null
+          ? null
+          : VehicleAttributes.fromJson(
+              json['attributes'] as Map<String, dynamic>),
+      links: json['links'] == null
+          ? null
+          : VehicleLinks.fromJson(json['links'] as Map<String, dynamic>),
+      relationships: json['relationships'] == null
+          ? null
+          : VehicleRelationships.fromJson(
+              json['relationships'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$VehicleDetailModelToJson(VehicleDetailModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'type': instance.type,
-      'attributes': instance.attributes.toJson(),
-      'links': instance.links.toJson(),
-      'relationships': instance.relationships.toJson(),
+      'attributes': instance.attributes?.toJson(),
+      'links': instance.links?.toJson(),
+      'relationships': instance.relationships?.toJson(),
     };
 
 VehicleAttributes _$VehicleAttributesFromJson(Map<String, dynamic> json) =>
     VehicleAttributes(
-      bearing: (json['bearing'] as num).toInt(),
-      carriages: (json['carriages'] as List<dynamic>)
-          .map((e) => VehicleCarriage.fromJson(e as Map<String, dynamic>))
+      bearing: (json['bearing'] as num?)?.toInt(),
+      carriages: (json['carriages'] as List<dynamic>?)
+          ?.map((e) => VehicleCarriage.fromJson(e as Map<String, dynamic>))
           .toList(),
-      currentStatus: json['current_status'] as String,
-      currentStopSequence: (json['current_stop_sequence'] as num).toInt(),
-      directionId: (json['direction_id'] as num).toInt(),
-      label: json['label'] as String,
-      latitude: (json['latitude'] as num).toDouble(),
-      longitude: (json['longitude'] as num).toDouble(),
-      revenue: json['revenue'] as String,
-      updatedAt: json['updated_at'] as String,
+      currentStatus: json['current_status'] as String?,
+      currentStopSequence: (json['current_stop_sequence'] as num?)?.toInt(),
+      directionId: (json['direction_id'] as num?)?.toInt(),
+      label: json['label'] as String?,
+      latitude: (json['latitude'] as num?)?.toDouble(),
+      longitude: (json['longitude'] as num?)?.toDouble(),
+      revenue: json['revenue'] as String?,
+      updatedAt: json['updated_at'] as String?,
       occupancyStatus: json['occupancy_status'] as String?,
       speed: (json['speed'] as num?)?.toDouble(),
     );
@@ -47,7 +53,7 @@ VehicleAttributes _$VehicleAttributesFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$VehicleAttributesToJson(VehicleAttributes instance) =>
     <String, dynamic>{
       'bearing': instance.bearing,
-      'carriages': instance.carriages.map((e) => e.toJson()).toList(),
+      'carriages': instance.carriages?.map((e) => e.toJson()).toList(),
       'current_status': instance.currentStatus,
       'current_stop_sequence': instance.currentStopSequence,
       'direction_id': instance.directionId,
@@ -62,9 +68,9 @@ Map<String, dynamic> _$VehicleAttributesToJson(VehicleAttributes instance) =>
 
 VehicleCarriage _$VehicleCarriageFromJson(Map<String, dynamic> json) =>
     VehicleCarriage(
-      label: json['label'] as String,
-      occupancyStatus: json['occupancy_status'] as String,
-      occupancyPercentage: (json['occupancy_percentage'] as num).toInt(),
+      label: json['label'] as String?,
+      occupancyStatus: json['occupancy_status'] as String?,
+      occupancyPercentage: (json['occupancy_percentage'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$VehicleCarriageToJson(VehicleCarriage instance) =>
@@ -75,7 +81,7 @@ Map<String, dynamic> _$VehicleCarriageToJson(VehicleCarriage instance) =>
     };
 
 VehicleLinks _$VehicleLinksFromJson(Map<String, dynamic> json) => VehicleLinks(
-      self: json['self'] as String,
+      self: json['self'] as String?,
     );
 
 Map<String, dynamic> _$VehicleLinksToJson(VehicleLinks instance) =>
@@ -86,33 +92,41 @@ Map<String, dynamic> _$VehicleLinksToJson(VehicleLinks instance) =>
 VehicleRelationships _$VehicleRelationshipsFromJson(
         Map<String, dynamic> json) =>
     VehicleRelationships(
-      route: RelationshipItem.fromJson(json['route'] as Map<String, dynamic>),
-      stop: RelationshipItem.fromJson(json['stop'] as Map<String, dynamic>),
-      trip: RelationshipItem.fromJson(json['trip'] as Map<String, dynamic>),
+      route: json['route'] == null
+          ? null
+          : RelationshipItem.fromJson(json['route'] as Map<String, dynamic>),
+      stop: json['stop'] == null
+          ? null
+          : RelationshipItem.fromJson(json['stop'] as Map<String, dynamic>),
+      trip: json['trip'] == null
+          ? null
+          : RelationshipItem.fromJson(json['trip'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$VehicleRelationshipsToJson(
         VehicleRelationships instance) =>
     <String, dynamic>{
-      'route': instance.route.toJson(),
-      'stop': instance.stop.toJson(),
-      'trip': instance.trip.toJson(),
+      'route': instance.route?.toJson(),
+      'stop': instance.stop?.toJson(),
+      'trip': instance.trip?.toJson(),
     };
 
 RelationshipItem _$RelationshipItemFromJson(Map<String, dynamic> json) =>
     RelationshipItem(
-      data: RelationshipData.fromJson(json['data'] as Map<String, dynamic>),
+      data: json['data'] == null
+          ? null
+          : RelationshipData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$RelationshipItemToJson(RelationshipItem instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data?.toJson(),
     };
 
 RelationshipData _$RelationshipDataFromJson(Map<String, dynamic> json) =>
     RelationshipData(
-      id: json['id'] as String,
-      type: json['type'] as String,
+      id: json['id'] as String?,
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$RelationshipDataToJson(RelationshipData instance) =>

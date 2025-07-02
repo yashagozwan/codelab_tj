@@ -27,6 +27,8 @@ import 'package:codelab_tj/domain/repository/trip_repository.dart' as _i247;
 import 'package:codelab_tj/domain/repository/vehicle_repository.dart' as _i50;
 import 'package:codelab_tj/presentation/features/vehicle/cubit/vehicle_cubit.dart'
     as _i170;
+import 'package:codelab_tj/presentation/features/vehicle_detail/cubit/vehicle_detail_cubit.dart'
+    as _i114;
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
@@ -56,8 +58,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio);
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => registerModule.prettyDioLogger);
-    gh.lazySingleton<_i448.CustomInterceptor>(() => _i448.CustomInterceptor());
     gh.lazySingleton<_i269.NavigationService>(() => _i269.NavigationService());
+    gh.lazySingleton<_i448.CustomInterceptor>(() => _i448.CustomInterceptor());
     gh.lazySingleton<_i247.TripRepository>(
         () => _i586.TripRepositoryImpl(gh<_i370.TripRemoteDataSource>()));
     gh.lazySingleton<_i282.MbtaApi>(() => _i282.MbtaApi(
@@ -69,6 +71,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i625.VehicleRepositoryImpl(gh<_i651.VehicleRemoteDataSource>()));
     gh.lazySingleton<_i751.RouteRepository>(
         () => _i918.RouteRepositoryImpl(gh<_i574.RouteRemoteDataSource>()));
+    gh.factory<_i114.VehicleDetailCubit>(
+        () => _i114.VehicleDetailCubit(gh<_i50.VehicleRepository>()));
     gh.factory<_i170.VehicleCubit>(() => _i170.VehicleCubit(
           gh<_i50.VehicleRepository>(),
           gh<_i751.RouteRepository>(),

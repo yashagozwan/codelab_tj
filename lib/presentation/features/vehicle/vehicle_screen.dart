@@ -1,11 +1,13 @@
 import 'package:codelab_tj/core/di/di.dart';
 import 'package:codelab_tj/core/utils/bloc_wrapper.dart';
+import 'package:codelab_tj/core/utils/navigation_service.dart';
 import 'package:codelab_tj/domain/model/route_model.dart';
 import 'package:codelab_tj/domain/model/trip_model.dart';
 import 'package:codelab_tj/domain/model/vehicle_model.dart';
 import 'package:codelab_tj/presentation/features/vehicle/cubit/vehicle_cubit.dart';
 import 'package:codelab_tj/presentation/features/vehicle/widgets/route_card.dart';
 import 'package:codelab_tj/presentation/features/vehicle/widgets/trip_card.dart';
+import 'package:codelab_tj/presentation/features/vehicle_detail/vehicle_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -143,7 +145,13 @@ class _VehicleScreenState extends State<VehicleScreen> {
                       ],
                     ),
                     trailing: const Icon(Icons.chevron_right),
-                    onTap: () {},
+                    onTap: () {
+                      getIt<NavigationService>().push(
+                        VehicleDetailScreen(
+                          vehicleId: item.id!,
+                        ).provider(),
+                      );
+                    },
                   ),
                 ),
               );
