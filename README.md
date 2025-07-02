@@ -20,7 +20,7 @@
 - Presentation Layer
 - Domain Layer
 - Data Layer
-- Core Center Config
+- Core Layer
 
 ## Step 1
 create .env in root project
